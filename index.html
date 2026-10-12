@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bitnylad | AI inspirational music: Afro, pop, rap, hip hop</title>
+<meta name="description" content="Bitnylad makes uplifting music with AI across Afro, pop, rap and hip hop. Press play and start your day with something that lifts you.">
+<link rel="canonical" href="https://bitnylad.com/">
+<meta property="og:title" content="Bitnylad | Music that gets you up">
+<meta property="og:description" content="Inspirational music made with AI: Afro, pop, rap, hip hop.">
+<meta property="og:url" content="https://bitnylad.com/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#030303">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%85%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Bitnylad","url":"https://bitnylad.com/","genre":["Afrobeats","Pop","Hip hop","Rap"],"description":"Inspirational music made with AI."}</script>
+<style>
+:root{--bg:#030303;--s1:#0f0f0f;--s2:#212121;--s3:#303030;--tx:#fff;--mu:#aaa;--sun:#FFB52E;--line:rgba(255,255,255,.1);--hov:rgba(255,255,255,.1);
+--hdr:64px;--side:240px;--pl:76px;--tabs:0px;
+--font:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--disp:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 70px)}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+svg{width:24px;height:24px;fill:currentColor;display:block}
+:focus-visible{outline:2px solid var(--sun);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--disp);letter-spacing:-.01em}
+
+/* top bar */
+.top{position:fixed;inset:0 0 auto;height:var(--hdr);z-index:40;display:grid;grid-template-columns:var(--side) 1fr auto;align-items:center;gap:8px;padding:0 20px 0 12px;background:rgba(3,3,3,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.lead{display:flex;align-items:center;gap:6px}
+.icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
+.icon:hover{background:var(--hov)}
+.brand{display:flex;align-items:center;gap:8px;font:800 21px var(--disp);letter-spacing:-.03em}
+.brand svg{width:30px;height:30px}
+.search{display:flex;align-items:center;gap:10px;max-width:560px;width:100%;justify-self:center;background:var(--s2);border-radius:10px;padding:0 14px;height:44px;color:var(--mu);border:1px solid transparent}
+.search:focus-within{background:#fff;color:#111}
+.search input{flex:1;background:none;border:0;color:inherit;font:inherit;outline:0;min-width:0}
+.search input::placeholder{color:inherit;opacity:.8}
+.follow{background:#fff;color:#000;font-weight:600;border-radius:999px;padding:8px 18px}
+.follow:hover{background:#e5e5e5}
+
+/* sidebar */
+.side{position:fixed;top:var(--hdr);bottom:var(--pl);left:0;width:var(--side);padding:12px;border-right:1px solid var(--line);overflow:auto;transition:transform .2s}
+.side a{display:flex;align-items:center;gap:20px;height:48px;padding:0 16px;border-radius:10px;font-weight:500}
+.side a:hover,.side a.on{background:var(--hov)}
+.side hr{border:0;border-top:1px solid var(--line);margin:12px 8px}
+.side p{color:var(--mu);font-size:13px;padding:0 16px}
+body.collapsed .side{transform:translateX(-100%)}
+body.collapsed main{margin-left:0}
+
+main{margin-left:var(--side);padding:calc(var(--hdr) + 0px) 32px calc(var(--pl) + var(--tabs) + 56px);transition:margin .2s}
+.inner{max-width:1360px;margin:0 auto}
+
+/* chips */
+.chips{position:sticky;top:var(--hdr);z-index:20;display:flex;gap:10px;overflow-x:auto;padding:14px 0;background:linear-gradient(var(--bg) 85%,transparent);scrollbar-width:none}
+.chip{flex:none;background:var(--hov);padding:8px 16px;border-radius:8px;font-weight:500}
+.chip:hover{background:rgba(255,255,255,.18)}
+.chip[aria-pressed=true]{background:#fff;color:#000}
+
+/* hero carousel */
+.hero{position:relative;overflow:hidden;border-radius:20px;height:clamp(460px,66vh,600px);margin:6px 0 36px;background:#1B1646;isolation:isolate;touch-action:pan-y}
+.track{display:flex;height:100%;transition:transform .95s cubic-bezier(.65,0,.25,1)}
+.slide{position:relative;flex:0 0 100%;overflow:hidden}
+.slide::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(3,3,3,.72),rgba(3,3,3,.15) 62%,transparent)}
+.sky,.rays,.sun,.fg{position:absolute;z-index:1}
+.sky{inset:0;background:var(--sky)}
+.sun{left:var(--sx);top:var(--sy);width:var(--sz);aspect-ratio:1;translate:-50% 0;border-radius:50%;background:radial-gradient(circle,var(--sc) 0 56%,var(--sc2) 73%,transparent 74%);box-shadow:0 0 130px 50px var(--glow);animation:bob 7s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-20px) scale(1.05)}}
+.rays{left:var(--sx);top:calc(var(--sy) + var(--sz) / 2);width:1500px;height:1500px;translate:-50% -50%;background:repeating-conic-gradient(rgba(255,255,255,.16) 0 5deg,transparent 5deg 15deg);-webkit-mask-image:radial-gradient(circle,#000 0,transparent 62%);mask-image:radial-gradient(circle,#000 0,transparent 62%);animation:spin 70s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fg{left:-2%;bottom:0;width:104%;height:48%;animation:drift 16s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(-1.8%)}}
+.s1{--sky:linear-gradient(180deg,#2A1450 0%,#8e2c5a 42%,#E4572E 72%,#FFB52E 100%);--sx:70%;--sy:26%;--sz:240px;--sc:#FFD27A;--sc2:#FF8A3D;--glow:rgba(255,181,46,.5)}
+.s2{--sky:linear-gradient(180deg,#1B1646 0%,#7B2FF7 36%,#FF4F7B 70%,#FFC36B 100%);--sx:72%;--sy:22%;--sz:210px;--sc:#FFE9A8;--sc2:#FFB52E;--glow:rgba(255,79,123,.55)}
+.s3{--sky:linear-gradient(180deg,#07142b 0%,#1B5AA6 42%,#19C3A8 74%,#FFD27A 100%);--sx:66%;--sy:34%;--sz:220px;--sc:#FFE08A;--sc2:#FF9F43;--glow:rgba(25,195,168,.5)}
+.s4{--sky:linear-gradient(180deg,#14062b 0%,#5a2a8c 38%,#c25a8c 68%,#ffb27a 100%);--sx:66%;--sy:20%;--sz:200px;--sc:#FFE3B0;--sc2:#FF9A6C;--glow:rgba(255,150,120,.5)}
+.copy{position:absolute;z-index:4;left:44px;right:44px;bottom:112px;max-width:620px}
+.hl{font-size:clamp(2.4rem,6.4vw,4.6rem);font-weight:800;line-height:1;text-shadow:0 4px 30px rgba(0,0,0,.35)}
+.copy p{margin:14px 0 22px;color:#f1ecff;font-size:17px;max-width:44ch}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;font-weight:600;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.18);backdrop-filter:blur(6px)}
+.pill:hover{background:var(--hov)}
+.pill.w{background:#fff;color:#000;border-color:#fff}
+.pill.w:hover{background:#e5e5e5}
+.pill svg{width:22px;height:22px}
+.slide .copy>*{animation:none}
+.slide.act .copy h1,.slide.act .copy h2{animation:rise .8s .35s both cubic-bezier(.2,.8,.2,1)}
+.slide.act .copy p{animation:rise .8s .5s both cubic-bezier(.2,.8,.2,1)}
+.slide.act .copy .acts{animation:rise .8s .65s both cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.dust{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.dust i{position:absolute;bottom:-12px;left:var(--l);width:var(--z);height:var(--z);border-radius:50%;background:rgba(255,232,170,.85);box-shadow:0 0 12px 3px rgba(255,214,120,.5);opacity:0;animation:up var(--t) linear infinite;animation-delay:var(--w)}
+@keyframes up{12%{opacity:.9}100%{transform:translate(var(--dx),-62vh);opacity:0}}
+.hb{position:absolute;z-index:6;top:50%;translate:0 -50%;width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);display:grid;place-items:center}
+.hb:hover{background:rgba(0,0,0,.6)}
+.hb.prev{left:14px}.hb.next{right:14px}
+.dots{position:absolute;z-index:6;left:44px;bottom:84px;display:flex;gap:8px}
+.dots button{position:relative;width:44px;height:5px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden;padding:0}
+.dots button::before{content:"";position:absolute;inset:-10px 0}
+.dots button.on::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:left;animation:fill 6.5s linear forwards}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero:hover .dots .on::after,.hero:focus-within .dots .on::after{animation-play-state:paused}
+.eq{position:absolute;z-index:5;left:0;right:0;bottom:0;display:flex;align-items:flex-end;gap:5px;height:64px;padding:0 4px;pointer-events:none}
+.eq i{flex:1;background:rgba(3,3,3,.82);border-radius:5px 5px 0 0;height:var(--h);transform:scaleY(.45);transform-origin:bottom;animation:eq 1s ease-in-out infinite alternate;animation-delay:var(--d);animation-play-state:paused}
+body.is-playing .eq i{animation-play-state:running}
+@keyframes eq{to{transform:scaleY(1)}}
+
+/* shelves */
+.shelf{margin-bottom:40px}
+.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.sh h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800}
+.arrows{display:flex;gap:8px}
+.arrows button{width:36px;height:36px;border-radius:50%;background:var(--hov);display:grid;place-items:center}
+.arrows button:hover{background:rgba(255,255,255,.2)}
+.arrows svg{width:20px;height:20px}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;scrollbar-width:none}
+.rail::-webkit-scrollbar,.chips::-webkit-scrollbar,.quick::-webkit-scrollbar{display:none}
+.card{flex:none;width:188px;scroll-snap-align:start}
+.cv{position:relative;display:block;width:100%;aspect-ratio:1;border-radius:10px;overflow:hidden;margin-bottom:10px}
+.ov{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.45);opacity:0;transition:opacity .15s}
+.ov i{width:52px;height:52px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font-style:normal}
+.ov .ipa,.on .ov .ip{display:none}
+.on .ov .ipa{display:grid}
+.cv:hover .ov,.cv:focus-visible .ov,.cur .ov{opacity:1}
+.card h3{font:600 16px var(--font);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card p{color:var(--mu);font-size:14px}
+
+/* quick picks */
+.quick{display:grid;grid-auto-flow:column;grid-template-rows:repeat(4,64px);grid-auto-columns:minmax(300px,440px);gap:0 24px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none}
+.row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center;width:100%;padding:8px;border-radius:8px;text-align:left;scroll-snap-align:start}
+.row:hover,.row.cur{background:var(--hov)}
+.row .art{position:relative;width:48px;height:48px;border-radius:6px;overflow:hidden}
+.row .art .ov{opacity:0}
+.row:hover .ov,.row.cur .ov{opacity:1}
+.row .ov i{width:30px;height:30px}
+.row .ov svg{width:18px;height:18px}
+.row b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row small{color:var(--mu);font-size:13.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .d{color:var(--mu);font-size:13.5px;padding-right:6px}
+.list .row{grid-template-columns:48px 1fr auto;border-bottom:1px solid var(--line);border-radius:0;padding:10px 8px}
+.none{color:var(--mu);padding:24px 0}
+.none b{display:block;color:var(--tx);font:700 20px var(--disp);margin-bottom:4px}
+
+/* explore */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.tile{height:54px;display:flex;align-items:center;padding:0 18px;border-radius:8px;background:var(--s2);border-left:6px solid var(--c);font-weight:600;text-align:left}
+.tile:hover{background:var(--s3)}
+
+/* about + contact */
+.block{margin-bottom:56px}
+.block h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:14px}
+.block>p{color:#d0d0d0;max-width:62ch;margin-bottom:22px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.steps div{background:var(--s1);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px;padding:18px}
+.steps h3{font-size:18px;font-weight:600;margin-bottom:4px}
+.steps p{color:var(--mu);font-size:14.5px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+form{display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:500}
+input.f,textarea{font:inherit;color:#fff;background:var(--s2);border:1px solid transparent;border-radius:10px;padding:12px 14px;width:100%}
+input.f:focus,textarea:focus{outline:0;border-color:var(--sun)}
+textarea{min-height:120px;resize:vertical}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.links a{background:var(--hov);border-radius:999px;padding:8px 16px;font-weight:500}
+.links a:hover{background:rgba(255,255,255,.2)}
+footer{border-top:1px solid var(--line);padding-top:22px;color:var(--mu);font-size:13.5px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+/* player */
+.player{position:fixed;left:0;right:0;bottom:var(--tabs);height:var(--pl);z-index:50;background:var(--s2);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:0 20px}
+.seek{position:absolute;left:0;right:0;top:-7px;width:100%;height:14px;margin:0;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer}
+.seek::-webkit-slider-runnable-track{height:4px;background:linear-gradient(90deg,var(--sun) var(--p,0%),#5a5a5a var(--p,0%))}
+.seek::-moz-range-track{height:4px;background:#5a5a5a}
+.seek::-moz-range-progress{height:4px;background:var(--sun)}
+.seek::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--sun);margin-top:-4px;transform:scale(0);transition:transform .1s}
+.seek::-moz-range-thumb{width:12px;height:12px;border:0;border-radius:50%;background:var(--sun)}
+.player:hover .seek::-webkit-slider-thumb,.seek:focus-visible::-webkit-slider-thumb{transform:scale(1)}
+.pl{display:flex;align-items:center;gap:12px;min-width:0}
+.pcover{flex:none;width:48px;height:48px;border-radius:6px;background:#333}
+.pm{min-width:0}
+.pm b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pm span{color:var(--mu);font-size:13.5px;white-space:nowrap}
+.mid{display:flex;align-items:center;gap:6px}
+.mid .icon.big{width:52px;height:52px;background:#fff;color:#000}
+.mid .icon.big:hover{background:#e5e5e5}
+.mid .icon.big svg{width:30px;height:30px}
+.mid .icon[aria-pressed=true]{color:var(--sun)}
+.time{color:var(--mu);font-size:13px;margin-left:10px;min-width:84px;font-variant-numeric:tabular-nums}
+.pr{display:flex;align-items:center;gap:8px;justify-content:flex-end}
+.vol{width:100px;accent-color:#fff;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:calc(var(--pl) + var(--tabs) + 18px);translate:-50% 20px;opacity:0;pointer-events:none;background:#fff;color:#000;font-weight:500;padding:12px 18px;border-radius:10px;z-index:60;max-width:92vw;transition:.25s}
+.toast.show{opacity:1;translate:-50% 0}
+
+/* mobile tabs */
+.tabs{display:none}
+@media(max-width:900px){
+  :root{--hdr:112px;--side:0px;--pl:68px;--tabs:56px}
+  .top{grid-template-columns:1fr auto;grid-template-rows:56px 52px;padding:0 14px}
+  .search{grid-column:1/-1;grid-row:2;max-width:none;height:42px}
+  #menu{display:none}
+  .side{display:none}
+  main{margin-left:0;padding-inline:16px}
+  .tabs{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;bottom:0;left:0;right:0;height:var(--tabs);background:var(--s1);border-top:1px solid var(--line);z-index:55;padding-bottom:env(safe-area-inset-bottom)}
+  .tabs a{display:grid;place-items:center;align-content:center;gap:2px;font-size:11px;color:var(--mu)}
+  .tabs a.on{color:#fff}
+  .tabs svg{width:22px;height:22px}
+  .player{grid-template-columns:1fr auto;padding:0 12px;gap:8px}
+  .mid .hm,.pr,.time{display:none}
+  .mid .icon.big{width:44px;height:44px}
+  .hero{height:520px}
+  .copy{left:22px;right:22px;bottom:100px}
+  .copy p{font-size:15.5px}
+  .dots{left:22px;bottom:78px}
+  .dots button{width:34px}
+  .hb{display:none}
+  .slide.slide{--sz:150px}
+  .eq{height:56px}
+  .card{width:150px}
+  .quick{grid-auto-columns:88%}
+  .contact{grid-template-columns:1fr}
+  .arrows{display:none}
+}
+@media(prefers-reduced-motion:reduce){.eq i{animation:none;transform:scaleY(.7)}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="lead">
+    <button class="icon" id="menu" aria-label="Toggle menu"><svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg></button>
+    <a class="brand" href="#home" aria-label="Bitnylad home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 22a12 12 0 0 1 24 0z" fill="#FFB52E"/><rect x="3" y="24.5" width="26" height="2.6" rx="1.3" fill="#fff"/></svg>
+      Bitnylad
+    </a>
+  </div>
+  <label class="search">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+    <input id="q" type="search" placeholder="Search songs, genres or moods" aria-label="Search Bitnylad" autocomplete="off">
+  </label>
+  <a class="follow" id="follow" href="#contact">Follow</a>
+</header>
+
+<aside class="side" id="side" aria-label="Sections">
+  <a href="#home" class="on" data-nav="home"><svg viewBox="0 0 24 24"><path d="M12 3 2 12h3v8h6v-5h2v5h6v-8h3z"/></svg>Home</a>
+  <a href="#explore" data-nav="explore"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm3.5 6.5-2 5-5 2 2-5z"/></svg>Explore</a>
+  <a href="#about" data-nav="about"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>About</a>
+  <a href="#contact" data-nav="contact"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>Contact</a>
+  <hr>
+  <p>Inspirational music made with AI. New songs land every week.</p>
+</aside>
+
+<main id="main">
+  <div class="inner">
+    <div id="homeView">
+      <div class="chips" id="chips" role="group" aria-label="Filter by genre"></div>
+
+      <section id="home" aria-label="Featured">
+        <div class="hero" id="hero" role="region" aria-roledescription="carousel" aria-label="Featured moods">
+  <div class="track" id="track">
+    <div class="slide s1" role="group" aria-roledescription="slide" aria-label="1 of 4">
+      <div class="sky"></div><div class="rays"></div><div class="sun"></div>
+      <svg class="fg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><pattern id="kn" width="48" height="10" patternUnits="userSpaceOnUse"><rect width="48" height="10" fill="#E4572E"/><rect width="16" height="10" fill="#FFB52E"/><rect x="32" width="8" height="10" fill="#19C3A8"/></pattern></defs><path d="M0 225Q200 150 430 212T870 190T1200 205V300H0Z" fill="#7a2a3a" opacity=".6"/><path d="M0 258Q300 218 600 248T1200 238V300H0Z" fill="#1a0b22"/><path d="M822 250C828 205 820 185 834 158L842 158C834 190 844 212 842 250Z" fill="#1a0b22"/><path d="M752 168Q830 118 912 150Q938 162 905 172Q830 148 768 182Z" fill="#1a0b22"/><path d="M1010 252C1013 228 1010 214 1016 200L1021 200C1017 216 1023 230 1022 252Z" fill="#1a0b22"/><path d="M975 206Q1018 182 1066 200Q1080 207 1062 212Q1018 197 984 215Z" fill="#1a0b22"/><rect y="290" width="1200" height="10" fill="url(#kn)"/></svg>
+      <div class="copy"><h1 class="hl">Music that gets you up.</h1><p>Afro grooves and good news for every sunrise.</p><div class="acts"><button class="pill w" data-gp="Afro"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play Afro</button><a class="pill" href="#explore">Explore styles</a></div></div>
+    </div>
+    <div class="slide s2" role="group" aria-roledescription="slide" aria-label="2 of 4">
+      <div class="sky"></div><div class="rays"></div><div class="sun"></div>
+      <svg class="fg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0 200Q150 140 320 190T640 170T960 200T1200 160V300H0Z" fill="#5b1b86" opacity=".7"/><path d="M0 240Q200 190 420 235T820 225T1200 235V300H0Z" fill="#2a0c4d"/><path d="M0 275Q300 250 600 272T1200 268V300H0Z" fill="#14052b"/></svg>
+      <div class="copy"><h2 class="hl">Believe again.</h2><p>Bright pop for the days that feel heavy.</p><div class="acts"><button class="pill w" data-gp="Pop"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play Pop</button><a class="pill" href="#explore">Explore styles</a></div></div>
+    </div>
+    <div class="slide s3" role="group" aria-roledescription="slide" aria-label="3 of 4">
+      <div class="sky"></div><div class="rays"></div><div class="sun"></div>
+      <svg class="fg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><pattern id="wn" width="14" height="16" patternUnits="userSpaceOnUse"><rect x="3" y="4" width="5" height="7" fill="#FFD27A"/></pattern></defs><path id="sk" d="M0 300V190h60v-40h50v60h40V120h60v90h50v-60h70v80h40V100h70v110h50V160h60v50h60V130h50v80h80V170h70v130Z" fill="#06101f"/><path d="M0 300V190h60v-40h50v60h40V120h60v90h50v-60h70v80h40V100h70v110h50V160h60v50h60V130h50v80h80V170h70v130Z" fill="url(#wn)" opacity=".42"/><rect y="285" width="1200" height="15" fill="#030a16"/></svg>
+      <div class="copy"><h2 class="hl">Own the morning.</h2><p>Hip hop with heart, built to start your day.</p><div class="acts"><button class="pill w" data-gp="Hip Hop"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play Hip Hop</button><a class="pill" href="#explore">Explore styles</a></div></div>
+    </div>
+    <div class="slide s4" role="group" aria-roledescription="slide" aria-label="4 of 4">
+      <div class="sky"></div><div class="rays"></div><div class="sun"></div>
+      <svg class="fg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path d="M0 235L180 125 300 205 470 80 640 215 800 140 1000 225 1200 150V300H0Z" fill="#4a2282" opacity=".75"/><path d="M0 282L220 192 380 252 560 172 760 262 960 202 1200 272V300H0Z" fill="#14062b"/><g stroke="#14062b" stroke-width="5" stroke-linecap="round" fill="none"><path d="M560 168V146M560 154L548 138M560 154L572 138M560 168L553 180M560 168L567 180"/></g><circle cx="560" cy="132" r="7" fill="#14062b"/></svg>
+      <div class="copy"><h2 class="hl">Still standing.</h2><p>Rap about falling, rising and never quitting.</p><div class="acts"><button class="pill w" data-gp="Rap"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play Rap</button><a class="pill" href="#explore">Explore styles</a></div></div>
+    </div>
+  </div>
+  <div class="dust" id="dust" aria-hidden="true"></div>
+  <button class="hb prev" id="hPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg></button>
+  <button class="hb next" id="hNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg></button>
+  <div class="dots" id="dots"><button aria-label="Slide 1"></button><button aria-label="Slide 2"></button><button aria-label="Slide 3"></button><button aria-label="Slide 4"></button></div>
+  <div class="eq" id="eq" aria-hidden="true"></div>
+</div>
+        <div class="shelf" id="quickWrap"><div class="sh"><h2>Quick picks</h2></div><div class="quick" id="quick"></div></div>
+      </section>
+
+      <div id="shelves"></div>
+
+      <section id="explore" class="block">
+        <h2>Explore by style</h2>
+        <div class="tiles" id="tiles"></div>
+      </section>
+    </div>
+
+    <section id="results" class="block" hidden>
+      <h2 id="rt">Results</h2>
+      <div class="list" id="rlist"></div>
+    </section>
+
+    <section id="about" class="block">
+      <h2>How we make it</h2>
+      <p>AI does the heavy lifting. People decide what is worth releasing. Every song is labeled as AI-assisted.</p>
+      <div class="steps">
+        <div style="--c:#FFB52E"><h3>Start with a message</h3><p>Each song begins with one idea: courage, gratitude, hustle or hope.</p></div>
+        <div style="--c:#FF4F7B"><h3>Shape the sound</h3><p>We guide AI tools toward the groove, tempo and vocals that fit the style.</p></div>
+        <div style="--c:#19C3A8"><h3>Edit by ear</h3><p>We refine lyrics and arrangement, and drop anything that falls flat.</p></div>
+        <div style="--c:#9B5DE5"><h3>Release</h3><p>Finished songs go to streaming platforms and social channels.</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="block">
+      <h2>Say hello</h2>
+      <div class="contact">
+        <div>
+          <p style="margin-bottom:18px;color:#d0d0d0;max-width:46ch">Want a custom song for your brand, church, event or campaign? Or want to share feedback? Send a message and we will reply.</p>
+          <div class="links" id="links"></div>
+        </div>
+        <form id="form">
+          <label>Your name <input class="f" name="name" required autocomplete="name"></label>
+          <label>Email <input class="f" type="email" name="email" required autocomplete="email"></label>
+          <label>Message <textarea name="message" required></textarea></label>
+          <button class="pill w" type="submit" style="justify-self:start">Send message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer><span>&copy; <span id="yr"></span> Bitnylad. All rights reserved.</span><span>Music created with AI assistance.</span></footer>
+  </div>
+</main>
+
+<nav class="tabs" aria-label="Sections">
+  <a href="#home" class="on" data-nav="home"><svg viewBox="0 0 24 24"><path d="M12 3 2 12h3v8h6v-5h2v5h6v-8h3z"/></svg>Home</a>
+  <a href="#explore" data-nav="explore"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm3.5 6.5-2 5-5 2 2-5z"/></svg>Explore</a>
+  <a href="#about" data-nav="about"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>About</a>
+  <a href="#contact" data-nav="contact"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>Contact</a>
+</nav>
+
+<div class="player" id="player" role="region" aria-label="Player">
+  <input class="seek" id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek">
+  <div class="pl"><div class="pcover" id="pcover"></div><div class="pm"><b id="ptitle">Pick a song</b><span id="psub">Bitnylad</span></div></div>
+  <div class="mid">
+    <button class="icon hm" id="bShuf" aria-label="Shuffle" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M10.6 9.2 5.4 4 4 5.4l5.2 5.2zM14.5 4l2 2-3.1 3.1 1.4 1.4L18 7.5l2 2V4zm.9 9.4-1.4 1.4 3.1 3.1-2 2H20v-5.5l-2 2zM4 18.6 5.4 20l5.2-5.2-1.4-1.4z"/></svg></button>
+    <button class="icon hm" id="bPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg></button>
+    <button class="icon big" id="pp" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="icon" id="bNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6zM16 6v12h2V6z"/></svg></button>
+    <button class="icon hm" id="bRep" aria-label="Repeat" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2z"/></svg></button>
+    <span class="time" id="time">0:00 / 0:00</span>
+  </div>
+  <div class="pr"><svg viewBox="0 0 24 24" style="color:#aaa" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z"/></svg><input class="vol" id="vol" type="range" min="0" max="100" value="80" aria-label="Volume"></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== EDIT THIS SECTION ===== */
+const CONFIG = {
+  email: "hello@bitnylad.com",
+  links: [
+    { name: "Spotify", url: "#" }, { name: "YouTube", url: "#" }, { name: "Apple Music", url: "#" },
+    { name: "Instagram", url: "#" }, { name: "TikTok", url: "#" }
+  ],
+  /* src: path or URL of your mp3, e.g. "audio/rise-up.mp3". Leave "" to hear a built-in preview beat.
+     cover: optional image path, e.g. "covers/rise-up.jpg". dur: preview length in seconds (only used when src is empty). */
+  tracks: [
+    { title: "Rise Up",          genre: "Afro",    note: "Afrobeats for a fresh start",   src: "", cover: "", dur: 30 },
+    { title: "Sunrise Dance",    genre: "Afro",    note: "Log drums and good news",       src: "", cover: "", dur: 30 },
+    { title: "Lagos Lights",     genre: "Afro",    note: "Night-drive Afro groove",       src: "", cover: "", dur: 30 },
+    { title: "Keep Moving",      genre: "Pop",     note: "A bright anthem for hard days", src: "", cover: "", dur: 30 },
+    { title: "Believe Again",    genre: "Pop",     note: "A soft start that builds",      src: "", cover: "", dur: 30 },
+    { title: "Bright Side",      genre: "Pop",     note: "Sing-along optimism",           src: "", cover: "", dur: 30 },
+    { title: "Own the Morning",  genre: "Hip Hop", note: "Boom-bap with a golden hook",   src: "", cover: "", dur: 30 },
+    { title: "Grind and Grace",  genre: "Hip Hop", note: "Hustle with heart",             src: "", cover: "", dur: 30 },
+    { title: "Still Standing",   genre: "Rap",     note: "Bars about getting back up",    src: "", cover: "", dur: 30 },
+    { title: "Back on My Feet",  genre: "Rap",     note: "A comeback story",              src: "", cover: "", dur: 30 }
+  ]
+};
+/* ============================= */
+
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const T = CONFIG.tracks, GENRES = [...new Set(T.map(t => t.genre))];
+const PAL = { "Afro": ["#FFB52E", "#E4572E"], "Pop": ["#FF4F7B", "#7B2FF7"], "Hip Hop": ["#19C3A8", "#1B5AA6"], "Rap": ["#9B5DE5", "#2B0A3D"] };
+const TITLES = { "Afro": "Afro heat", "Pop": "Pop that lifts you", "Hip Hop": "Hip hop for your morning", "Rap": "Rap with a message" };
+const PLAY = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>', PAUSE = '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>';
+const fmt = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
+
+function art(t, i) {
+  if (t.cover) return "background:url('" + esc(t.cover) + "') center/cover";
+  const [a, b] = PAL[t.genre] || PAL.Afro;
+  return [
+    `background:radial-gradient(circle at 70% 30%,rgba(255,255,255,.4) 0 18%,transparent 19%),linear-gradient(135deg,${a},${b})`,
+    `background:repeating-linear-gradient(45deg,rgba(0,0,0,.14) 0 12px,transparent 12px 24px),linear-gradient(160deg,${a},${b})`,
+    `background:radial-gradient(circle at 20% 85%,rgba(0,0,0,.3) 0 30%,transparent 31%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.28) 0 22%,transparent 23%),linear-gradient(45deg,${b},${a})`,
+    `background:conic-gradient(from 20deg at 30% 70%,${a},${b},${a})`
+  ][i % 4];
+}
+const ov = `<span class="ov"><i class="ip">${PLAY}</i><i class="ipa">${PAUSE}</i></span>`;
+const card = (t, i) => `<article class="card"><button class="cv" data-play="${i}" aria-label="Play ${esc(t.title)}" style="${art(t, i)}">${ov}</button><h3>${esc(t.title)}</h3><p>${esc(t.genre)} &bull; Bitnylad</p></article>`;
+const row = (t, i) => `<button class="row" data-play="${i}" aria-label="Play ${esc(t.title)}"><span class="art" style="${art(t, i)}">${ov}</span><span><b>${esc(t.title)}</b><small>${esc(t.genre)} &bull; ${esc(t.note)}</small></span><span class="d">${t.src ? "" : fmt(t.dur || 30)}</span></button>`;
+const shelf = (title, list) => `<section class="shelf"><div class="sh"><h2>${esc(title)}</h2><div class="arrows"><button data-scroll="-1" aria-label="Scroll left"><svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg></button><button data-scroll="1" aria-label="Scroll right"><svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg></button></div></div><div class="rail">${list.map(o => card(o.t, o.i)).join("")}</div></section>`;
+
+/* ---------- home rendering ---------- */
+let genre = "All";
+function renderHome() {
+  const list = T.map((t, i) => ({ t, i })).filter(o => genre === "All" || o.t.genre === genre);
+  $("#quick").innerHTML = list.slice(0, 8).map(o => row(o.t, o.i)).join("");
+  const out = [];
+  if (genre === "All") out.push(shelf("New releases", list));
+  (genre === "All" ? GENRES : [genre]).forEach(g => { const l = list.filter(o => o.t.genre === g); if (l.length) out.push(shelf(TITLES[g] || g, l)); });
+  $("#shelves").innerHTML = out.join("");
+  $$("#chips .chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.g === genre));
+  markPlaying();
+}
+["All", ...GENRES].forEach(g => { const b = document.createElement("button"); b.className = "chip"; b.dataset.g = g; b.textContent = g; $("#chips").appendChild(b); });
+GENRES.forEach(g => { const b = document.createElement("button"); b.className = "tile"; b.dataset.tile = g; b.style.setProperty("--c", PAL[g] ? PAL[g][0] : "#FFB52E"); b.textContent = g; $("#tiles").appendChild(b); });
+for (let i = 0; i < 44; i++) { const b = document.createElement("i"); b.style.setProperty("--h", (35 + Math.abs(Math.sin(i * .55)) * 65) + "%"); b.style.setProperty("--d", (i % 11) * -.12 + "s"); $("#eq").appendChild(b); }
+
+/* ---------- player engine ---------- */
+const audio = new Audio(); audio.preload = "metadata";
+let cur = -1, playing = false, shuffle = false, repeat = false, mode = "demo", pos = 0, dur = 30, vol = .8, seeking = false, demoTimer = null, toldDemo = false;
+
+function load(i) { stopAll(); cur = i; const t = T[i]; pos = 0; dur = t.dur || 30; if (t.src) { mode = "file"; audio.src = t.src; audio.volume = vol; } else mode = "demo"; prog(0, dur); }
+function play(i) { if (i !== undefined && i !== cur) load(i); resume(); }
+function resume() {
+  if (cur < 0) { load(0); }
+  playing = true;
+  if (mode === "file") audio.play().catch(() => { playing = false; ui(); toast("This audio file could not be loaded. Check the src path in CONFIG."); });
+  else startDemo();
+  ui(); meta();
+}
+function pause() { playing = false; if (mode === "file") audio.pause(); else stopDemo(); ui(); }
+function stopAll() { audio.pause(); stopDemo(); }
+function next(auto) { if (!T.length) return; let n = cur; if (auto && repeat) n = cur; else if (shuffle && T.length > 1) { while (n === cur) n = Math.floor(Math.random() * T.length); } else n = (cur + 1) % T.length; load(n); resume(); }
+function prev() { if (curPos() > 3) { seekTo(0); return; } load((cur - 1 + T.length) % T.length); resume(); }
+const curPos = () => mode === "file" ? audio.currentTime : pos;
+function seekTo(s) { if (mode === "file") audio.currentTime = s; else { pos = s; prog(pos, dur); } }
+function prog(p, d) { d = d || 1; const f = Math.min(1, p / d); if (!seeking) { $("#seek").value = f * 1000; $("#seek").style.setProperty("--p", f * 100 + "%"); } $("#time").textContent = fmt(p) + " / " + fmt(d === 1 ? 0 : d); }
+
+audio.addEventListener("timeupdate", () => prog(audio.currentTime, audio.duration));
+audio.addEventListener("loadedmetadata", () => prog(0, audio.duration));
+audio.addEventListener("ended", () => next(true));
+audio.addEventListener("error", () => { if (playing && mode === "file") { playing = false; ui(); toast("This audio file could not be loaded. Check the src path in CONFIG."); } });
+
+/* built-in preview beat so the player works before real mp3s are added */
+const PAT = {
+  "Afro": { bpm: 104, k: [0, 6, 10], s: [4, 12], b: { 0: 0, 3: 0, 6: 3, 10: 5, 12: 3 }, root: 110, third: 3, shaker: true },
+  "Pop": { bpm: 118, k: [0, 4, 8, 12], s: [4, 12], b: { 0: 0, 4: 0, 8: 5, 12: 7 }, root: 98, third: 4 },
+  "Hip Hop": { bpm: 92, k: [0, 7, 10], s: [4, 12], b: { 0: 0, 7: 0, 10: -2 }, root: 55, third: 3 },
+  "Rap": { bpm: 88, k: [0, 3, 8, 11], s: [4, 12], b: { 0: 0, 8: -4, 11: -2 }, root: 55, third: 3 }
+};
+let ctx, master, noise, stepTimer, stepIdx = 0;
+function startDemo() {
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (AC) {
+    ctx = ctx || new AC(); ctx.resume();
+    if (!master) { master = ctx.createGain(); master.connect(ctx.destination); const n = ctx.sampleRate / 2, buf = ctx.createBuffer(1, n, ctx.sampleRate), d = buf.getChannelData(0); for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1; noise = buf; }
+    master.gain.value = vol * .55; const P = PAT[T[cur].genre] || PAT.Pop; stepIdx = 0;
+    clearInterval(stepTimer); stepTimer = setInterval(() => { step(P); stepIdx++; }, 60 / P.bpm / 4 * 1000);
+  }
+  if (!toldDemo) { toldDemo = true; toast("Playing a preview beat. Add your mp3 paths in CONFIG to play your songs."); }
+  clearInterval(demoTimer); demoTimer = setInterval(() => { pos += .25; prog(pos, dur); if (pos >= dur) next(true); }, 250);
+}
+function stopDemo() { clearInterval(demoTimer); clearInterval(stepTimer); }
+function env(node, t, peak, len) { const g = ctx.createGain(); g.gain.setValueAtTime(peak, t); g.gain.exponentialRampToValueAtTime(.001, t + len); node.connect(g); g.connect(master); return g; }
+function step(P) {
+  const i = stepIdx % 16, t = ctx.currentTime;
+  if (P.k.includes(i)) { const o = ctx.createOscillator(); o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(42, t + .12); env(o, t, .9, .22); o.start(t); o.stop(t + .25); }
+  if (P.s.includes(i)) { const n = ctx.createBufferSource(), f = ctx.createBiquadFilter(); n.buffer = noise; f.type = "bandpass"; f.frequency.value = 1800; n.connect(f); env(f, t, .35, .14); n.start(t); n.stop(t + .15); }
+  if (i % 2 === 1 || P.shaker) { const n = ctx.createBufferSource(), f = ctx.createBiquadFilter(); n.buffer = noise; f.type = "highpass"; f.frequency.value = 7000; n.connect(f); env(f, t, i % 2 ? .22 : .1, .05); n.start(t); n.stop(t + .06); }
+  if (P.b[i] !== undefined) { const o = ctx.createOscillator(); o.type = "triangle"; o.frequency.value = P.root * Math.pow(2, P.b[i] / 12); env(o, t, .45, .22); o.start(t); o.stop(t + .25); }
+  if (i === 0) [0, P.third, 7].forEach(n => { const o = ctx.createOscillator(); o.type = "triangle"; o.frequency.value = P.root * 4 * Math.pow(2, n / 12); env(o, t, .07, 1.9); o.start(t); o.stop(t + 2); });
+}
+
+/* ---------- UI sync ---------- */
+function ui() {
+  const t = T[cur];
+  $("#ptitle").textContent = t ? t.title : "Pick a song";
+  $("#psub").textContent = t ? t.genre + " \u2022 Bitnylad" : "Bitnylad";
+  $("#pcover").style.cssText = t ? art(t, cur) : "background:#333";
+  $("#pp").innerHTML = playing ? PAUSE : PLAY; $("#pp").setAttribute("aria-label", playing ? "Pause" : "Play");
+  document.body.classList.toggle("is-playing", playing);
+  document.title = playing && t ? t.title + " | Bitnylad" : "Bitnylad | AI inspirational music: Afro, pop, rap, hip hop";
+  markPlaying();
+}
+function markPlaying() { $$("[data-play]").forEach(el => { const on = +el.dataset.play === cur; el.classList.toggle("cur", on); el.classList.toggle("on", on && playing); }); }
+let tt; function toast(m) { const e = $("#toast"); e.textContent = m; e.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => e.classList.remove("show"), 4200); }
+function meta() {
+  if (!("mediaSession" in navigator) || cur < 0) return; const t = T[cur];
+  navigator.mediaSession.metadata = new MediaMetadata({ title: t.title, artist: "Bitnylad", album: t.genre, artwork: t.cover ? [{ src: t.cover }] : [] });
+  [["play", resume], ["pause", pause], ["previoustrack", prev], ["nexttrack", () => next(false)]].forEach(([a, f]) => { try { navigator.mediaSession.setActionHandler(a, f); } catch (e) {} });
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click", e => {
+  const p = e.target.closest("[data-play]"); if (p) { const i = +p.dataset.play; if (i === cur) (playing ? pause() : resume()); else play(i); return; }
+  const gp = e.target.closest("[data-gp]"); if (gp) { const i = T.findIndex(t => t.genre === gp.dataset.gp); if (i > -1) play(i); return; }
+  const g = e.target.closest("[data-g]"); if (g) { genre = g.dataset.g; renderHome(); return; }
+  const tile = e.target.closest("[data-tile]"); if (tile) { genre = tile.dataset.tile; renderHome(); $("#home").scrollIntoView(); return; }
+  const s = e.target.closest("[data-scroll]"); if (s) { const r = s.closest(".shelf").querySelector(".rail"); r.scrollBy({ left: +s.dataset.scroll * r.clientWidth * .8, behavior: "smooth" }); return; }
+  const n = e.target.closest("[data-nav]"); if (n) { if (q.value) { q.value = ""; search(); } setNav(n.dataset.nav); }
+});
+$("#pp").onclick = () => playing ? pause() : resume();
+$("#bNext").onclick = () => next(false); $("#bPrev").onclick = prev;
+$("#bShuf").onclick = e => { shuffle = !shuffle; e.currentTarget.setAttribute("aria-pressed", shuffle); };
+$("#bRep").onclick = e => { repeat = !repeat; e.currentTarget.setAttribute("aria-pressed", repeat); };
+$("#menu").onclick = () => document.body.classList.toggle("collapsed");
+const seek = $("#seek");
+seek.addEventListener("input", () => { seeking = true; const d = mode === "file" ? audio.duration : dur; seek.style.setProperty("--p", seek.value / 10 + "%"); $("#time").textContent = fmt(seek.value / 1000 * d) + " / " + fmt(d); });
+seek.addEventListener("change", () => { const d = mode === "file" ? audio.duration : dur; if (d && cur >= 0) seekTo(seek.value / 1000 * d); seeking = false; });
+$("#vol").addEventListener("input", e => { vol = e.target.value / 100; audio.volume = vol; if (master) master.gain.value = vol * .55; });
+document.addEventListener("keydown", e => { if (e.code === "Space" && !/INPUT|TEXTAREA|BUTTON|A|SELECT/.test(e.target.tagName)) { e.preventDefault(); playing ? pause() : resume(); } });
+
+/* search */
+const q = $("#q");
+function search() {
+  const v = q.value.trim().toLowerCase(), on = v.length > 0;
+  $("#homeView").hidden = on; $("#results").hidden = !on; if (!on) return;
+  const l = T.map((t, i) => ({ t, i })).filter(o => (o.t.title + " " + o.t.genre + " " + o.t.note).toLowerCase().includes(v));
+  $("#rt").textContent = "Results for \u201C" + q.value.trim() + "\u201D";
+  $("#rlist").innerHTML = l.length ? l.map(o => row(o.t, o.i)).join("") : '<div class="none"><b>No songs found</b>Try a genre like Afro or Rap, or a word like morning.</div>';
+  markPlaying();
+}
+q.addEventListener("input", search);
+
+/* nav highlight */
+function setNav(id) { $$("[data-nav]").forEach(a => a.classList.toggle("on", a.dataset.nav === id)); }
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) setNav(en.target.id); }), { rootMargin: "-40% 0px -55% 0px" });
+  ["home", "explore", "about", "contact"].forEach(id => io.observe($("#" + id)));
+}
+
+/* links, form, footer */
+CONFIG.links.forEach(l => { const a = document.createElement("a"); a.href = l.url; a.textContent = l.name; a.target = "_blank"; a.rel = "noopener"; $("#links").appendChild(a); });
+const real = CONFIG.links.find(l => l.url && l.url !== "#"); if (real) { $("#follow").href = real.url; $("#follow").target = "_blank"; $("#follow").rel = "noopener"; }
+$("#form").addEventListener("submit", e => { e.preventDefault(); const d = new FormData(e.target); location.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("Message from bitnylad.com") + "&body=" + encodeURIComponent(d.get("message") + "\n\nFrom: " + d.get("name") + " (" + d.get("email") + ")"); });
+$("#yr").textContent = new Date().getFullYear();
+/* hero carousel */
+const slides = $$(".slide"), dots = $$("#dots button"), trk = $("#track");
+let si = 0;
+function go(n) {
+  si = (n + slides.length) % slides.length;
+  trk.style.transform = "translateX(" + (-si * 100) + "%)";
+  slides.forEach((sl, i) => { sl.toggleAttribute("inert", i !== si); sl.setAttribute("aria-hidden", i !== si); sl.classList.toggle("act", i === si); });
+  dots.forEach((d, i) => { d.classList.remove("on"); void d.offsetWidth; d.classList.toggle("on", i === si); d.setAttribute("aria-current", i === si); });
+}
+dots.forEach((d, i) => d.addEventListener("click", () => go(i)));
+$("#hPrev").onclick = () => go(si - 1); $("#hNext").onclick = () => go(si + 1);
+$("#dots").addEventListener("animationend", e => { if (e.target.classList.contains("on")) go(si + 1); });
+let sx = null;
+$("#hero").addEventListener("pointerdown", e => { sx = e.clientX; });
+$("#hero").addEventListener("pointerup", e => { if (sx !== null && Math.abs(e.clientX - sx) > 50) go(si + (e.clientX < sx ? 1 : -1)); sx = null; });
+for (let i = 0; i < 18; i++) { const d = document.createElement("i"); d.style.setProperty("--l", Math.random() * 100 + "%"); d.style.setProperty("--z", (3 + Math.random() * 5) + "px"); d.style.setProperty("--t", (7 + Math.random() * 7) + "s"); d.style.setProperty("--w", (-Math.random() * 12) + "s"); d.style.setProperty("--dx", (Math.random() * 120 - 60) + "px"); $("#dust").appendChild(d); }
+go(0);
+
+renderHome(); ui();
+</script>
+</body>
+</html>
